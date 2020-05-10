@@ -660,7 +660,7 @@ c:\place 2";
             */
 
 
-
+            /*
             var listOfNum = new List<int>();
             do
             {
@@ -693,6 +693,62 @@ c:\place 2";
 
             listOfNum.Sort();
             Console.WriteLine("{0}, {1}, {2}", listOfNum[0], listOfNum[1], listOfNum[2]);
+            */
+
+
+
+
+
+
+
+
+            //Section 7 Dates & times!!!!!
+
+            var dateTime = new DateTime(2015, 1, 2); //get value that is Jan, 2cd, 2015
+            var now = DateTime.Now; //get the value right now
+            var today = DateTime.Today; //get the date
+
+
+            Console.WriteLine(now); // can also do now.ToString()
+            Console.WriteLine(today);
+            Console.WriteLine(now.Hour);
+            Console.WriteLine(now.Minute);
+
+            var tomorrow = now.AddDays(1);
+            var yesterday = now.AddDays(-1);
+
+            Console.WriteLine(now.ToLongDateString());
+            Console.WriteLine(now.ToShortDateString());
+            Console.WriteLine(now.ToLongTimeString());
+            Console.WriteLine(now.ToShortTimeString());
+
+            Console.WriteLine(now.ToString("O")); //the letter can be modified in MANY ways.
+            Console.WriteLine(now.ToString("yyyy-MMM-dd")); //the letter can be modified in MANY ways.
+
+
+
+
+            var timeSpan = new TimeSpan(1,2,3);
+            var timeSpan1 = TimeSpan.FromHours(1);
+
+            var start = DateTime.Now;
+            var end = DateTime.Now.AddMinutes(2);
+            var duration = end - start;
+            Console.WriteLine("time duration is: " + duration); // There will be a very short amount of time added to the 2 minutes. That could be due to the amount of time from setting start and setting end.
+
+
+
+            Console.WriteLine("minutes: " + timeSpan.Minutes); //this is 2 minutes as shown above
+            Console.WriteLine("Total Minutes: " + timeSpan.TotalMinutes); //this is 62.5 mintes (1 hour + 2 minutes + 3 seconds)
+
+            // Add and subtract. Both of these methods return a new timeSpan value
+            Console.WriteLine("Add Example " + timeSpan.Add(TimeSpan.FromMinutes(8))); //adds 8 min
+            Console.WriteLine("Subtract Example " + timeSpan.Subtract(TimeSpan.FromMinutes(8))); //takes away 8 min.
+
+            //conversions to and from strings
+            Console.WriteLine("ToString" + timeSpan.ToString()); //ToString isn't needed. Already taken care of.
+
+            Console.WriteLine("Parse: " + TimeSpan.Parse("1:02:03"));
         }
     }
 }
