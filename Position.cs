@@ -3,12 +3,12 @@ using System.Drawing;
 
 namespace CSharpUdemy
 {
-    public partial class Point
+    public partial class Position
     {
         public int X;
         public int Y;
 
-        public Point(int x, int y)
+        public Position(int x, int y)
         {
             this.X = x;
             this.Y = y;
@@ -20,13 +20,13 @@ namespace CSharpUdemy
             this.Y = y;
         }
 
-        public void Move(Point newLocation)
+        public void Move(Position newLocation)
         {
-            
+
             //This is identical to:
             //this.X = newLocation.X;
             //this.Y = newLocation.Y;
-            
+
             //handle the case a null is thrown
             if (newLocation == null)
             {

@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Transactions;
 using CSharpUdemy.Classes;
 
@@ -53,7 +57,7 @@ namespace CSharpUdemy
     }
     */
 
-
+/*
     public class PresentationObject
     {
         //common shared code
@@ -82,7 +86,7 @@ namespace CSharpUdemy
             Console.WriteLine("hyperlink added here");
         }
     }
-
+    */
 
     class Program
     {
@@ -169,10 +173,10 @@ namespace CSharpUdemy
 
             //Section 3 
 
-           //var text = new Text();
-           //text. shows all text and presentation items.
-           //text.Width = 100;
-           //text.Copy();
+            //var text = new Text();
+            //text. shows all text and presentation items.
+            //text.Width = 100;
+            //text.Copy();
 
 
 
@@ -192,31 +196,98 @@ namespace CSharpUdemy
 
             //composition vs inheritence
 
+
+
+
+
+            /*
+            // Code here to read Classes question 1
+            var stopwatch = new Stopwatch();
+            stopwatch.StartTime();
+            //stopwatch.StartTime();
+            stopwatch.ReadTime();
+            Thread.Sleep(5000);
+            stopwatch.ReadTime();
+            */
+
+            /*
+            //Classes question 2
+            var post = new Post("text", "long text");
+            post.UpVote();
+            post.UpVote();
+            post.DownVote();
+            post.UpVote();
+            post.UpVote();
+            post.print();
+            */
+
+
+            //var customer = new Customer();
+
+
+
+
+
+            //var car = new Car("gello");
+            //var car2 = new Car();
+
+            /*
+            var text = new Text();
+            Shape shape = text;
+
+            //both of these values point to the same value.
+            text.Width = 200;
+            shape.Width = 100;
+
+            Console.WriteLine(text.Width);
+            */
+
+            //StreamReader reader = new StreamReader(new MemoryStream());
+            //var list = new ArrayList();
+            //list.Add(1);
+            //list.Add("Mosh");
+            //list.Add(new Text());
+
+            //var anotherList = new List<Shape>;
+
+
+            //Shape shape = new Text();
+            //when hovering over shape. you will get only the properties in the shape object, not the ones in Text.
+            //shape.
+
+            //to get access to the Text. Methods, you need to cast it
+            //Text text = (Text) shape;
+
+
+
+
+            /*
+            var stack = new Stack();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Pop());
+            Console.WriteLine(stack.Pop());
+            */
+
+
+            //Method Overriding:
+
+            var shapes = new List<Shape>();
+            shapes.Add(new Circle());
+            shapes.Add(new Rectangle());
+            shapes.Add(new Text());
+            shapes.Add(new Triangle());
+
+            var canvas = new Canvas();
+            canvas.DrawShapes(shapes);
+
+
+
         }
-        
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
 
 
 /*class Program
