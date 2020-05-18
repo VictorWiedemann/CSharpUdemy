@@ -1,4 +1,4 @@
-﻿namespace CSharpUdemy
+﻿/*namespace CSharpUdemy
 {
     public class Installer
     {
@@ -14,4 +14,4 @@
             _logger.Log("we are installing the application");
         }
     }
-}
+}*/

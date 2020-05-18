@@ -8,9 +8,13 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Net.Mail;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -91,7 +95,7 @@ namespace CSharpUdemy
     class Program
     {
 
-        
+
 
 
         static void Main(string[] args)
@@ -273,7 +277,7 @@ namespace CSharpUdemy
 
 
             //Method Overriding:
-
+            /*
             var shapes = new List<Shape>();
             shapes.Add(new Circle());
             shapes.Add(new Rectangle());
@@ -282,13 +286,325 @@ namespace CSharpUdemy
 
             var canvas = new Canvas();
             canvas.DrawShapes(shapes);
+            */
+
+            //var oracleConn = new OracleConnection("ori test");
+            //var sqlConn = new SqlConnection("sql conn");
+
+            /*
+
+            var fullName = "      Mosh Hamedani       ";
+            Console.WriteLine("Trim: '{0}'", fullName.Trim());
+            Console.WriteLine("Trim: '{0}'", fullName.ToUpper());
+            Console.WriteLine("Trim: '{0}'", fullName.ToUpperInvariant());
+            Console.WriteLine("Trim: '{0}'", fullName.ToLower());
+            var index = fullName.Split(' ');
+
+            foreach (string strong in index)
+            {
+                Console.WriteLine(strong + "---");
+            }
+
+            var index2 = fullName.Trim().Split(' ');
+
+            foreach (string strong in index2)
+            {
+                Console.WriteLine(strong + ">>>");
+            }
+
+            var newFullName = fullName.Replace("Mosh", "Moshfegh");
+            Console.WriteLine(newFullName);
+
+            var str = "35";
+            var age = Convert.ToInt32(str);
+            Console.WriteLine(age);
+
+            float price = 29.95f;
+            Console.WriteLine(price.ToString("C"));
+           */
+            /*
+
+             var sentence =
+                 "This isad akrhale rtas oiu uyta s; uth a l ; ori ty a slituhas lkrjth as;iourtyawkjsrethalsiurdhtalskjrbtasi;udht";
+             Console.WriteLine(SummerizeText(sentence));
 
 
+         }
+
+         static string SummerizeText(string Text, int MaxLength = 20)
+         {
+             var summaryWords = new List<string>();
+
+             if (Text.Length < maxLength)
+                 return Text;
+
+             var words = Text.Split(' ');
+             var totalCharacters = 0;
+
+             foreach (string word in words)
+             {
+                 totalCharacters += word.Length + 1; //1 for space
+                 if (totalCharacters > maxLength)
+                 {
+                     break;
+                 }
+                 summaryWords.Add(word);
+
+             }
+
+
+
+             return String.Join(" ", summaryWords) + "...";
+     */
+            /*
+
+           var builder = new StringBuilder("hello world");
+            builder.Append('-', 10);
+            Console.WriteLine(builder);
+            Console.WriteLine();
+            builder.AppendLine();
+            Console.WriteLine(builder.Append("Header"));
+            Console.WriteLine();
+            builder.AppendLine();
+            Console.WriteLine(builder.Append('-', 10));
+
+            Console.WriteLine(builder.Replace('-', '+'));
+            Console.WriteLine();
+
+            Console.WriteLine(builder.Remove(0, 10));
+            Console.WriteLine();
+
+            builder.Insert(0, new string('-', 10));
+            Console.WriteLine(builder);
+
+            Console.WriteLine("First Char: " + builder[0]);
+
+
+
+            //oooor
+               var builder2 = new StringBuilder("hello world");
+
+               builder2
+                   .Append("test")
+                   .Append("hello")
+                   .AppendLine();
+
+               Console.WriteLine(builder2);
+               */
+
+            /*
+            var path = @"c:\temp\myfile2.jpg";
+        
+            //File is static methods, do not generate a class, but will need a security check per line of code
+            //File.Copy("C:\\temp\\myfile.jpg, c:\\temp\\myfile2.jpg");
+            //equiv to above
+            //File.Copy(@"C:\temp\myfile.jpg", @"c:\temp\myfile2.jpg", true);
+            //File.Delete();
+
+            //creates a class. slower generation, but one security check only. Do this with many file methods.
+            //var fileInfo = new FileInfo(path);
+            //fileInfo.CopyTo("...");
+            //fileInfo.Delete();
+            //if (fileInfo.Exists)
+            {
+            }
+
+
+            var directory = @"C:\Users\kirbo\Documents\code_projects";
+
+            Directory.CreateDirectory(directory);
+            //This will get a full directory list of all files in the temp folder and recursively all directories.
+            var files = Directory.GetFiles(directory, "*", SearchOption.AllDirectories);
+            
+            //This will get a full directory list of all files above that are .sln type
+            var files2 = Directory.GetFiles(directory, ".sln", SearchOption.AllDirectories);
+            foreach (string file in files)
+            {
+                //Console.WriteLine(file);
+            }
+
+            foreach (string file in files2)
+            {
+                Console.WriteLine(file);
+            }
+
+            var directories = Directory.GetDirectories(directory);
+
+            foreach (string direct in directories)
+            {
+                Console.WriteLine(direct);
+            }
+            */
+
+            /*
+            var path = @"C:\Users\kirbo\Documents\code_projects\CSharpUdemy\CSharpUdemy\CSharpUdemy.sln";
+            
+            //this is a manual way to work
+            var dotIndex = path.IndexOf('.');
+            var extension = path.Substring(dotIndex);
+
+            //here is the C# library solution
+            Console.WriteLine( "Extension: " + Path.GetExtension(path) );
+            Console.WriteLine( "FileName: " + Path.GetFileName(path));
+            Console.WriteLine("FileName: " + Path.GetFileNameWithoutExtension(path));
+            Console.WriteLine("DirectoryName: " + Path.GetDirectoryName(path));
+            */
+            /*
+            var orderProcessor = new OrderProcessor(new ShippingCalculator());
+            var order = new Order {DatePlace = DateTime.Now, TotalPrice = 100f};
+            orderProcessor.Process(order);
+            */
+
+            //var dbMigrator = new DbMigrator(new ConsoleLogger());
+
+
+
+            /*
+            var encoder = new VideoEncoder();
+            encoder.RegisterNotificationChannel(new SmsNotificationChannel());
+            encoder.RegisterNotificationChannel(new SmsNotificationChannel());
+            encoder.RegisterNotificationChannel(new SmsNotificationChannel());
+            encoder.RegisterNotificationChannel(new MailNotificationChannel());
+            encoder.Encode();
+            */
+
+
+            var workflow = new Workflow();
+            
+            workflow.Add(new Init());
+            workflow.Add(new CreateTemplate());
+            workflow.Add(new GenerateNoise());
+            
+            var workflowEngine = new WorkflowEngine();
+
+            workflowEngine.Run(workflow);
 
         }
     }
 }
 
+public interface IWorkflow
+{
+    void Add(ITask task);
+    void Remove(ITask task);
+    IEnumerable<ITask> GetTasks();
+}
+
+public interface ITask
+{
+    public void Execute();
+}
+
+public class Init : ITask
+{
+    public void Execute()
+    {
+        Console.WriteLine("starting program...");
+    }
+}
+
+public class CreateTemplate : ITask
+{
+    public void Execute()
+    {
+        Console.WriteLine("creating template now...");
+    }
+}
+
+public class GenerateNoise : ITask
+{
+    public void Execute()
+    {
+        Console.WriteLine("blah blah blah blah");
+    }
+}
+
+public class Workflow : IWorkflow
+{
+    private readonly List<ITask> _tasks;
+
+    public Workflow()
+    {
+        _tasks = new List<ITask>();
+    }
+    public void Add(ITask task)
+    {
+        _tasks.Add(task);
+    }
+
+    public void Remove(ITask task)
+    {
+        _tasks.Remove(task);
+    }
+
+    //this only returns a readonly version of the list.
+    public IEnumerable<ITask> GetTasks()
+    {
+        return _tasks;
+    }
+}
+
+
+public class WorkflowEngine
+{
+    public void Run(IWorkflow workflow)
+    {
+        foreach (var step in workflow.GetTasks())
+        {
+            step.Execute();
+        }
+    }
+
+}
+
+
+/*
+public class HigherBeing
+{
+    public string Purity { get; private set; }
+    protected bool isAvailable { get; set; }
+
+    public HigherBeing(string purity)
+    {
+        Console.WriteLine($"I AM {purity} THE HIGHER BEING");
+    }
+}
+
+public class Person : HigherBeing
+{
+    public int Dick { get; protected set; }
+
+    public Person(int height, string name) : base(name)
+    {
+        Console.WriteLine("I AM THE PERSON" + height + name);
+        isAvailable = true;
+    }
+}
+
+
+public class Cat : Person
+{
+    public Cat() : base(60, "cat")
+    {
+        Console.WriteLine("I AM A Cat");
+    }
+
+    public void HangOut()
+    {
+        if (isAvailable)
+        {
+            Console.WriteLine("I can hang out");
+        }
+        else
+        {
+            Console.WriteLine("I am unavailable");
+        }
+    }
+
+
+}
+}
+*/
 
 /*class Program
 {
@@ -732,313 +1048,314 @@ c:\place 2";
 
 
 
-            /*
-
-
-            //Lists
-            //<> means that the instance is a "generic" type
-            //IEnumerable: I means Instance. IEnumerable means you can supply an instance of a class.
-            var numbers = new List<int>() {10,20,30,40};
-            numbers.Add(10);
-            numbers.AddRange(new int[3] {50, 60, 70});
-
-            foreach (var num in numbers)
-            {
-                Console.WriteLine(num);
-            }
-
-            Console.WriteLine();
-            Console.WriteLine(numbers.IndexOf(1));
-            Console.WriteLine(numbers.LastIndexOf(1));
-            Console.WriteLine("Count: " + numbers.Count);
-
-            //numbers.Remove(10); //this removes the first time that 10 appears
-           
-            
-            
-            //the foreach below will fail due to removing a value and shortening the list
-            //foreach (var num in numbers)
-            //{
-            //    Console.WriteLine(num);
-            //    if (num == 10)
-            //        numbers.Remove(num);
-            //}
-
-            //the below for loop allows for the removal of the values. When this happens number.Count gets smaller
-            //and the for loop will recalculate numbers.Count every time it runs. This way we never access a 
-            //value outside of the list.
-            for (var i = 0; i < numbers.Count; i++)
-            {
-                if (numbers[i] == 10)
-                {
-                    numbers.Remove(numbers[i]);
-                }
-            }
-
-            foreach (var num in numbers)
-            {
-                Console.WriteLine(num);
-            }
-
-            numbers.Clear(); //this removes all elements of the list.
-            Console.WriteLine(numbers.Count);
-            */
-
-
-            /*
-            // When you post a message on Facebook, depending on the number of people who like your post, Facebook displays different information.
-
-            //If no one likes your post, it doesn't display anything.
-            //    If only one person likes your post, it displays: [Friend's Name] likes your post.
-            //    If two people like your post, it displays: [Friend 1] and[Friend 2] like your post.
-            //    If more than two people like your post, it displays: [Friend 1], [Friend 2] and[Number of Other People] others like your post.
-            //Write a program and continuously ask the user to enter different names, until the user presses Enter (without supplying a name). Depending on the number of names provided, display a message based on the above pattern.
-            
-            var listOfNames = new List<string>();
-            do
-            {
-                Console.WriteLine("Enter a name:");
-                string userValue = Console.ReadLine();
-                if (String.IsNullOrEmpty(userValue))
-                {
-                    break;
-                }
-                else
-                {
-                    listOfNames.Add(userValue);
-                }
-            } while (true);
-
-            if (listOfNames.Any())
-            {
-                for (var i = 0; i < listOfNames.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        Console.Write(listOfNames[0]);
-                    }
-                    else if (i == 1)
-                    {
-                        Console.Write(", " + listOfNames[1]);
-                    }
-                    else
-                    {
-                        var numRemainingFriends = listOfNames.Count - 2;
-                        Console.Write(" and " + numRemainingFriends + " others");
-                        break;
-                    }
-                }
-
-                Console.WriteLine(" have liked your post");
-            }
-            */
-
-            /*
-            //2 - Write a program and ask the user to enter their name. Use an array to reverse the name and then store the result in a new string.Display the reversed name on the console.
-            bool _abort = false;
-            do
-            {
-                Console.WriteLine("Enter a name:");
-                string userValue = Console.ReadLine();
-                if (String.IsNullOrEmpty(userValue))
-                {
-                    Console.WriteLine("please enter a real name");
-                    continue;
-                }
-
-                var reversed = new List<char>();
-                reversed.AddRange(userValue.Reverse());
-                foreach (var character in reversed)
-                {
-                    Console.Write(character);
-                }
-
-
-                _abort = true;
-
-            } while (!_abort);
-
-
-
-
-
-            */
-
-
-
-            /*
-            //3- Write a program and ask the user to enter 5 numbers. If a number has been previously entered, display an error message and ask the user to re-try. Once the user successfully enters 5 unique numbers, sort them and display the result on the console.
-            int userInt = 0;
-            var listOfNum = new List<int>();
-            do
-            {
-                Console.WriteLine("Enter a number:");
-                string userValue = Console.ReadLine();
-                bool didParse = int.TryParse(userValue, out userInt);
-                if (!didParse)
-                {
-                    Console.WriteLine("that is not a number.");
-                    Console.WriteLine();
-                    continue;
-                }
-
-                if (listOfNum.Contains(userInt))
-                {
-                    Console.WriteLine("Number has already been added, pick a new one");
-                    continue;
-                }
-
-                listOfNum.Add(userInt);
-            } while (listOfNum.Count < 5);
-
-            listOfNum.Sort();
-            Console.WriteLine("list of sorted numbers are: ");
-            foreach (var num in listOfNum)
-            {
-                Console.WriteLine(num);
-            }
-            Console.WriteLine();
-
-            */
-
-
-
-
-            //Write a program and ask the user to continuously enter a number or type "Quit" to exit. The list of numbers may include duplicates.Display the unique numbers that the user has entered.
-            /*
-            int userInt = 0;
-            var listOfNum = new List<int>();
-            var uniqueListOfNum = new List<int>();
-            do
-            {
-                Console.WriteLine("Enter a number:");
-                string userValue = Console.ReadLine();
-
-                if (userValue == "Quit")
-                    break;
-
-                bool didParse = int.TryParse(userValue, out userInt);
-                if (!didParse)
-                {
-                    Console.WriteLine("that is not a number.");
-                    Console.WriteLine();
-                    continue;
-                }
-
-
-                listOfNum.Add(userInt);
-            } while (true);
-
-            foreach (var num in listOfNum)
-            {
-                if(!uniqueListOfNum.Contains(num))
-                {
-                    uniqueListOfNum.Add(num);//don't actually need list list. Keeping here if future problem requires the code.
-                    Console.WriteLine(num);
-                }
-            }
-            */
-
-
-            /*
-            var listOfNum = new List<int>();
-            do
-            {
-                Console.WriteLine("Enter a comma seperated list of numbers:");
-                string userValue = Console.ReadLine();
-
-                if (String.IsNullOrEmpty(userValue))
-                {
-                    Console.WriteLine("Invalid List, try again");
-                    continue;
-                }
-
-                try
-                {
-                    listOfNum = userValue.Split(",").Select(int.Parse).ToList();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Invalid List, try again");
-                    continue;
-                }
-                if (listOfNum.Count < 3)
-                {
-                    Console.WriteLine("Invalid List, try again");
-                    continue;
-                }
-
-                break;
-            } while (true);
-
-            listOfNum.Sort();
-            Console.WriteLine("{0}, {1}, {2}", listOfNum[0], listOfNum[1], listOfNum[2]);
-            */
-
-
-
-
-
-
-
-            /*
-            //Section 7 Dates & times!!!!!
-
-            var dateTime = new DateTime(2015, 1, 2); //get value that is Jan, 2cd, 2015
-            var now = DateTime.Now; //get the value right now
-            var today = DateTime.Today; //get the date
-
-
-            Console.WriteLine(now); // can also do now.ToString()
-            Console.WriteLine(today);
-            Console.WriteLine(now.Hour);
-            Console.WriteLine(now.Minute);
-
-            var tomorrow = now.AddDays(1);
-            var yesterday = now.AddDays(-1);
-
-            Console.WriteLine(now.ToLongDateString());
-            Console.WriteLine(now.ToShortDateString());
-            Console.WriteLine(now.ToLongTimeString());
-            Console.WriteLine(now.ToShortTimeString());
-
-            Console.WriteLine(now.ToString("O")); //the letter can be modified in MANY ways.
-            Console.WriteLine(now.ToString("yyyy-MMM-dd")); //the letter can be modified in MANY ways.
-
-
-
-
-            var timeSpan = new TimeSpan(1,2,3);
-            var timeSpan1 = TimeSpan.FromHours(1);
-
-            var start = DateTime.Now;
-            var end = DateTime.Now.AddMinutes(2);
-            var duration = end - start;
-            Console.WriteLine("time duration is: " + duration); // There will be a very short amount of time added to the 2 minutes. That could be due to the amount of time from setting start and setting end.
-
-
-
-            Console.WriteLine("minutes: " + timeSpan.Minutes); //this is 2 minutes as shown above
-            Console.WriteLine("Total Minutes: " + timeSpan.TotalMinutes); //this is 62.5 mintes (1 hour + 2 minutes + 3 seconds)
-
-            // Add and subtract. Both of these methods return a new timeSpan value
-            Console.WriteLine("Add Example " + timeSpan.Add(TimeSpan.FromMinutes(8))); //adds 8 min
-            Console.WriteLine("Subtract Example " + timeSpan.Subtract(TimeSpan.FromMinutes(8))); //takes away 8 min.
-
-            //conversions to and from strings
-            Console.WriteLine("ToString" + timeSpan.ToString()); //ToString isn't needed. Already taken care of.
-
-            Console.WriteLine("Parse: " + TimeSpan.Parse("1:02:03"));
-
-
-            */
-            /*
-
-
-        
-            
-            }
+/*
+
+
+//Lists
+//<> means that the instance is a "generic" type
+//IEnumerable: I means Instance. IEnumerable means you can supply an instance of a class.
+var numbers = new List<int>() {10,20,30,40};
+numbers.Add(10);
+numbers.AddRange(new int[3] {50, 60, 70});
+
+foreach (var num in numbers)
+{
+    Console.WriteLine(num);
+}
+
+Console.WriteLine();
+Console.WriteLine(numbers.IndexOf(1));
+Console.WriteLine(numbers.LastIndexOf(1));
+Console.WriteLine("Count: " + numbers.Count);
+
+//numbers.Remove(10); //this removes the first time that 10 appears
+
+
+
+//the foreach below will fail due to removing a value and shortening the list
+//foreach (var num in numbers)
+//{
+//    Console.WriteLine(num);
+//    if (num == 10)
+//        numbers.Remove(num);
+//}
+
+//the below for loop allows for the removal of the values. When this happens number.Count gets smaller
+//and the for loop will recalculate numbers.Count every time it runs. This way we never access a 
+//value outside of the list.
+for (var i = 0; i < numbers.Count; i++)
+{
+    if (numbers[i] == 10)
+    {
+        numbers.Remove(numbers[i]);
+    }
+}
+
+foreach (var num in numbers)
+{
+    Console.WriteLine(num);
+}
+
+numbers.Clear(); //this removes all elements of the list.
+Console.WriteLine(numbers.Count);
+*/
+
+
+/*
+// When you post a message on Facebook, depending on the number of people who like your post, Facebook displays different information.
+
+//If no one likes your post, it doesn't display anything.
+//    If only one person likes your post, it displays: [Friend's Name] likes your post.
+//    If two people like your post, it displays: [Friend 1] and[Friend 2] like your post.
+//    If more than two people like your post, it displays: [Friend 1], [Friend 2] and[Number of Other People] others like your post.
+//Write a program and continuously ask the user to enter different names, until the user presses Enter (without supplying a name). Depending on the number of names provided, display a message based on the above pattern.
+
+var listOfNames = new List<string>();
+do
+{
+    Console.WriteLine("Enter a name:");
+    string userValue = Console.ReadLine();
+    if (String.IsNullOrEmpty(userValue))
+    {
+        break;
+    }
+    else
+    {
+        listOfNames.Add(userValue);
+    }
+} while (true);
+
+if (listOfNames.Any())
+{
+    for (var i = 0; i < listOfNames.Count; i++)
+    {
+        if (i == 0)
+        {
+            Console.Write(listOfNames[0]);
         }
+        else if (i == 1)
+        {
+            Console.Write(", " + listOfNames[1]);
+        }
+        else
+        {
+            var numRemainingFriends = listOfNames.Count - 2;
+            Console.Write(" and " + numRemainingFriends + " others");
+            break;
+        }
+    }
+
+    Console.WriteLine(" have liked your post");
+}
+*/
+
+/*
+//2 - Write a program and ask the user to enter their name. Use an array to reverse the name and then store the result in a new string.Display the reversed name on the console.
+bool _abort = false;
+do
+{
+    Console.WriteLine("Enter a name:");
+    string userValue = Console.ReadLine();
+    if (String.IsNullOrEmpty(userValue))
+    {
+        Console.WriteLine("please enter a real name");
+        continue;
+    }
+
+    var reversed = new List<char>();
+    reversed.AddRange(userValue.Reverse());
+    foreach (var character in reversed)
+    {
+        Console.Write(character);
+    }
+
+
+    _abort = true;
+
+} while (!_abort);
+
+
+
+
+
+*/
+
+
+
+/*
+//3- Write a program and ask the user to enter 5 numbers. If a number has been previously entered, display an error message and ask the user to re-try. Once the user successfully enters 5 unique numbers, sort them and display the result on the console.
+int userInt = 0;
+var listOfNum = new List<int>();
+do
+{
+    Console.WriteLine("Enter a number:");
+    string userValue = Console.ReadLine();
+    bool didParse = int.TryParse(userValue, out userInt);
+    if (!didParse)
+    {
+        Console.WriteLine("that is not a number.");
+        Console.WriteLine();
+        continue;
+    }
+
+    if (listOfNum.Contains(userInt))
+    {
+        Console.WriteLine("Number has already been added, pick a new one");
+        continue;
+    }
+
+    listOfNum.Add(userInt);
+} while (listOfNum.Count < 5);
+
+listOfNum.Sort();
+Console.WriteLine("list of sorted numbers are: ");
+foreach (var num in listOfNum)
+{
+    Console.WriteLine(num);
+}
+Console.WriteLine();
+
+*/
+
+
+
+
+//Write a program and ask the user to continuously enter a number or type "Quit" to exit. The list of numbers may include duplicates.Display the unique numbers that the user has entered.
+/*
+int userInt = 0;
+var listOfNum = new List<int>();
+var uniqueListOfNum = new List<int>();
+do
+{
+    Console.WriteLine("Enter a number:");
+    string userValue = Console.ReadLine();
+
+    if (userValue == "Quit")
+        break;
+
+    bool didParse = int.TryParse(userValue, out userInt);
+    if (!didParse)
+    {
+        Console.WriteLine("that is not a number.");
+        Console.WriteLine();
+        continue;
+    }
+
+
+    listOfNum.Add(userInt);
+} while (true);
+
+foreach (var num in listOfNum)
+{
+    if(!uniqueListOfNum.Contains(num))
+    {
+        uniqueListOfNum.Add(num);//don't actually need list list. Keeping here if future problem requires the code.
+        Console.WriteLine(num);
     }
 }
 */
+
+
+/*
+var listOfNum = new List<int>();
+do
+{
+    Console.WriteLine("Enter a comma seperated list of numbers:");
+    string userValue = Console.ReadLine();
+
+    if (String.IsNullOrEmpty(userValue))
+    {
+        Console.WriteLine("Invalid List, try again");
+        continue;
+    }
+
+    try
+    {
+        listOfNum = userValue.Split(",").Select(int.Parse).ToList();
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("Invalid List, try again");
+        continue;
+    }
+    if (listOfNum.Count < 3)
+    {
+        Console.WriteLine("Invalid List, try again");
+        continue;
+    }
+
+    break;
+} while (true);
+
+listOfNum.Sort();
+Console.WriteLine("{0}, {1}, {2}", listOfNum[0], listOfNum[1], listOfNum[2]);
+*/
+
+
+
+
+
+
+
+/*
+//Section 7 Dates & times!!!!!
+
+var dateTime = new DateTime(2015, 1, 2); //get value that is Jan, 2cd, 2015
+var now = DateTime.Now; //get the value right now
+var today = DateTime.Today; //get the date
+
+
+Console.WriteLine(now); // can also do now.ToString()
+Console.WriteLine(today);
+Console.WriteLine(now.Hour);
+Console.WriteLine(now.Minute);
+
+var tomorrow = now.AddDays(1);
+var yesterday = now.AddDays(-1);
+
+Console.WriteLine(now.ToLongDateString());
+Console.WriteLine(now.ToShortDateString());
+Console.WriteLine(now.ToLongTimeString());
+Console.WriteLine(now.ToShortTimeString());
+
+Console.WriteLine(now.ToString("O")); //the letter can be modified in MANY ways.
+Console.WriteLine(now.ToString("yyyy-MMM-dd")); //the letter can be modified in MANY ways.
+
+
+
+
+var timeSpan = new TimeSpan(1,2,3);
+var timeSpan1 = TimeSpan.FromHours(1);
+
+var start = DateTime.Now;
+var end = DateTime.Now.AddMinutes(2);
+var duration = end - start;
+Console.WriteLine("time duration is: " + duration); // There will be a very short amount of time added to the 2 minutes. That could be due to the amount of time from setting start and setting end.
+
+
+
+Console.WriteLine("minutes: " + timeSpan.Minutes); //this is 2 minutes as shown above
+Console.WriteLine("Total Minutes: " + timeSpan.TotalMinutes); //this is 62.5 mintes (1 hour + 2 minutes + 3 seconds)
+
+// Add and subtract. Both of these methods return a new timeSpan value
+Console.WriteLine("Add Example " + timeSpan.Add(TimeSpan.FromMinutes(8))); //adds 8 min
+Console.WriteLine("Subtract Example " + timeSpan.Subtract(TimeSpan.FromMinutes(8))); //takes away 8 min.
+
+//conversions to and from strings
+Console.WriteLine("ToString" + timeSpan.ToString()); //ToString isn't needed. Already taken care of.
+
+Console.WriteLine("Parse: " + TimeSpan.Parse("1:02:03"));
+
+
+*/
+/*
+
+
+
+
+}
+}
+}
+}
+*/
+  

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
-
+/*
 namespace CSharpUdemy
 {
     public class DbMigrator
@@ -25,4 +25,4 @@ namespace CSharpUdemy
             Console.WriteLine(var);
         }
     }
-}
+}*/
